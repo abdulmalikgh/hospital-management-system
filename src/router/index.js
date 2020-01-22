@@ -10,6 +10,8 @@ import loginPlatform from '../loginComponent/loginPlatform.vue';
 import patientLogin from '../loginComponent/patientLogin.vue';
 import adminLogin from '../loginComponent/adminLogin.vue';
 import pharmacistLogin from '../loginComponent/pharmacistLogin.vue';
+import doctorDashboard from '../doctor/doctorDashboard.vue';
+import drDashboardContent from '../doctor/drDashboardContent.vue';
 //import doctorDashboard from '../doctor/';
 
 Vue.use(VueRouter)
@@ -44,6 +46,15 @@ const routes = [
        component:pharmacistLogin
      }
    ]
+ },
+ {
+   path:'doctor',
+   component:doctorDashboard,
+   meta: {isAuthenticated : true},
+   children: {
+     path:'doctor/dashboard',
+     component:drDashboardContent
+   }
  }
 ]
 
