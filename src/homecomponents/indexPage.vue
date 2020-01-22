@@ -1,6 +1,7 @@
 <template>
    <v-app>
      <v-app-bar app color="primary" dark >
+       <h1 class="display-1">Virtual Health Care</h1>
        <v-spacer></v-spacer>
        <v-btn text rounded to="/home">Home</v-btn> 
        <v-btn text rounded to="/about">About</v-btn> 

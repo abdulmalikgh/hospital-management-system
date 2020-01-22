@@ -5,7 +5,11 @@ import about from '../homecomponents/pages/about.vue';
 import location from '../homecomponents/pages/location.vue';
 import services from '../homecomponents/pages/services.vue';
 import home from '../homecomponents/pages/home.vue';
-import doctorLogin from '../doctor/doctorLogin.vue';
+import doctorLogin from '../loginComponent/doctorLogin.vue'
+import loginPlatform from '../loginComponent/loginPlatform.vue';
+import patientLogin from '../loginComponent/patientLogin.vue';
+import adminLogin from '../loginComponent/adminLogin.vue';
+import pharmacistLogin from '../loginComponent/pharmacistLogin.vue';
 //import doctorDashboard from '../doctor/';
 
 Vue.use(VueRouter)
@@ -19,8 +23,28 @@ const routes = [
    {path:'/about', component:about},
    {path:'/location', component:location},
    {path:'/services',component:services},
-   {path:'/doctor/login',component:doctorLogin}
- ]}
+ ]},
+ {
+   path:'login', component:loginPlatform,
+   children: [
+     {
+       path:'/doctor',
+       component: doctorLogin,
+     },
+     {
+       path:'/patient',
+       component:patientLogin
+     },
+     {
+       path:'/admin',
+       component:adminLogin
+     },
+     {
+       path:'/pharmacist',
+       component:pharmacistLogin
+     }
+   ]
+ }
 ]
 
 const router = new VueRouter({

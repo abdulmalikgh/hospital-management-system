@@ -5,25 +5,31 @@
                     <p>
                       Doctor login and check all your appointments and attend to your patient
                     </p>
-                     <router-link to="/doctor/login" class="btn btn-light text-center" id="doctorPage">
-                      Doctor 
-                     </router-link>
+                    <v-btn to="/doctor">
+                         Doctor Login
+                    </v-btn>
                   </div>
                   <div class="patientPortal">
                     <p>
                       login as a patient, conctact our doctors and get your questions answered
                     </p>
-                    <a href="" class="btn btn-light text-center">patient</a>
+                    <v-btn to="/patient">
+                         Patient Login
+                    </v-btn>
                  </div>
                  <div class="pharmacy">
                     <p>
                      Get your prescribe drug from our pharmacy, pay your bills and get your drug at your door step
                     </p>
-                    <a href="" class="btn btn-light text-center">Pharmacist</a>
+                    <v-btn to="/pharmacist">
+                         pharmacist Login
+                    </v-btn>
                  </div>
                  <div class="admin">
                     <p>Admnistrators manages doctors and patient and make sure that our service is delivered well</p>
-                    <a href="" class="btn btn-light btn-outline">Admin</a>
+                    <v-btn to="/doctor">
+                         Admin Login
+                    </v-btn>
                  </div>
             </div>
     </v-content>
