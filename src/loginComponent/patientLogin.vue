@@ -1,7 +1,6 @@
 <template>
-    <v-app>
-             <v-card width="400" class="mx-auto mt-5">
-            <v-card-title class="m-3">
+    <v-card width="400" class="mx-auto mt-5">
+        <v-card-title class="m-3">
               <h1 class="display-1">Patient Login</h1>
             </v-card-title>
             <v-divider></v-divider>
@@ -37,7 +36,6 @@
                 </v-btn>
             </v-card-actions>
         </v-card>
-    </v-app>
 </template>
 
 <script>

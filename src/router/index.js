@@ -28,19 +28,19 @@ const routes = [
    path:'login', component:loginPlatform,
    children: [
      {
-       path:'/doctor',
+       path:'/doctor/login',
        component: doctorLogin,
      },
      {
-       path:'/patient',
+       path:'/patient/login',
        component:patientLogin
      },
      {
-       path:'/admin',
+       path:'/admin/login',
        component:adminLogin
      },
      {
-       path:'/pharmacist',
+       path:'/pharmacist/login',
        component:pharmacistLogin
      }
    ]

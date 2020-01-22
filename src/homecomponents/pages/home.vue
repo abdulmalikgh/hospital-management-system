@@ -5,7 +5,7 @@
                     <p>
                       Doctor login and check all your appointments and attend to your patient
                     </p>
-                    <v-btn to="/doctor">
+                    <v-btn to="/doctor/login">
                          Doctor Login
                     </v-btn>
                   </div>
@@ -13,7 +13,7 @@
                     <p>
                       login as a patient, conctact our doctors and get your questions answered
                     </p>
-                    <v-btn to="/patient">
+                    <v-btn to="/patient/login">
                          Patient Login
                     </v-btn>
                  </div>
@@ -21,13 +21,13 @@
                     <p>
                      Get your prescribe drug from our pharmacy, pay your bills and get your drug at your door step
                     </p>
-                    <v-btn to="/pharmacist">
+                    <v-btn to="/pharmacist/login">
                          pharmacist Login
                     </v-btn>
                  </div>
                  <div class="admin">
                     <p>Admnistrators manages doctors and patient and make sure that our service is delivered well</p>
-                    <v-btn to="/doctor">
+                    <v-btn to="/admin/login">
                          Admin Login
                     </v-btn>
                  </div>
