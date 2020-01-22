@@ -1,73 +1,38 @@
 <template>
    <v-app>
-     <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+     <v-app-bar app color="primary" dark >
+       <v-spacer></v-spacer>
+       <v-btn text rounded to="/home">Home</v-btn> 
+       <v-btn text rounded to="/about">About</v-btn> 
+       <v-btn text rounded to="/services">Services</v-btn> 
+       <v-btn text rounded to="/location">Location</v-btn> 
     </v-app-bar>
     <!----- Content ------->
      <v-content>
-    
+    <router-view/>
     </v-content>
    <!----- Footer  ------->
-  <v-footer
-    dark
-    padless
-  >
-    <v-card
-      class="flex"
-      flat
-      tile
-    >
-      <v-card-title class="teal">
-        <strong class="subheading">Get connected with us on social networks!</strong>
-
-        <v-spacer></v-spacer>
-
+   <v-footer dark padless>
+    <v-card flat tile class="indigo lighten-1 white--text text-center">
+      <v-card-text>
         <v-btn
           v-for="icon in icons"
           :key="icon"
-          class="mx-4"
-          dark
+          class="mx-4 white--text"
           icon
         >
           <v-icon size="24px">{{ icon }}</v-icon>
         </v-btn>
-      </v-card-title>
+      </v-card-text>
 
-      <v-card-text class="py-2 white--text text-center">
-        {{ new Date().getFullYear() }} — <strong>virtual hospital</strong>
+      <v-card-text class="white--text pt-0">
+        Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+      </v-card-text>
+
+      <v-divider></v-divider>
+
+      <v-card-text class="white--text">
+        {{ new Date().getFullYear() }} — <strong>Virtual Hospital</strong>
       </v-card-text>
     </v-card>
   </v-footer>
@@ -79,7 +44,13 @@ export default {
   name: 'HelloWorld',
 
   data: () => ({
-   
+    icons: [
+        'fab fa-facebook',
+        'fab fa-twitter',
+        'fab fa-google-plus',
+        'fab fa-linkedin',
+        'fab fa-instagram',
+      ],
   }),
 };
 </script>
