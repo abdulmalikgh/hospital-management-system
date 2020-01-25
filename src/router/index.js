@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '../store';
 import indexPage from '../homecomponents/indexPage.vue';
 import about from '../homecomponents/pages/about.vue';
 import location from '../homecomponents/pages/location.vue';
@@ -10,7 +11,8 @@ import loginPlatform from '../loginComponent/loginPlatform.vue';
 import patientLogin from '../loginComponent/patientLogin.vue';
 import adminLogin from '../loginComponent/adminLogin.vue';
 import pharmacistLogin from '../loginComponent/pharmacistLogin.vue';
-//import doctorDashboard from '../doctor/';
+import doctorDashboard from '../doctor/doctorDashboard.vue';
+
 
 Vue.use(VueRouter)
 
@@ -44,6 +46,15 @@ const routes = [
        component:pharmacistLogin
      }
    ]
+ },
+ {
+   path:'doctor',
+   component:doctorDashboard,
+   meta: {requireAuth : true},
+   children: {
+     path:'doctor/dashboard',
+     component:drDashboardContent
+   }
  }
 ]
 
@@ -53,4 +64,15 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to,from,next)=> {
+  if(to.matched.some(record => record.meta.requireAuth)){
+    if(store.getters.isDoctorLoggedIn){
+     next();
+     return;
+    }
+    next('/doctor/dashboard')
+  } else {
+    next()
+  }
+})
 export default router
