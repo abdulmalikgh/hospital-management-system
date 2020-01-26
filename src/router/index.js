@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from '../store';
 import indexPage from '../homecomponents/indexPage.vue';
 import about from '../homecomponents/pages/about.vue';
 import location from '../homecomponents/pages/location.vue';
@@ -49,7 +50,7 @@ const routes = [
  {
    path:'doctor',
    component:doctorDashboard,
-   meta: {isAuthenticated : true},
+   meta: {requireAuth : true},
    children: {
      path:'doctor/dashboard',
      component:drDashboardContent
@@ -63,4 +64,15 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to,from,next)=> {
+  if(to.matched.some(record => record.meta.requireAuth)){
+    if(store.getters.isDoctorLoggedIn){
+     next();
+     return;
+    }
+    next('/doctor/dashboard')
+  } else {
+    next()
+  }
+})
 export default router

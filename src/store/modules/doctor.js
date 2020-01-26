@@ -31,15 +31,35 @@ export const doctor = {
             resolve(res)
         }).catch(err => {
             localStorage.removeItem('token')
+            commit('auth_error')
             reject(err)
         })
        });
+     },
+     logDoctorOut({commit}) {
+         return new Promise(function(resolve,reject) {
+             commit('logout')
+             localStorage.removeItem('token')
+             delete Axios.defaults.headers.common['Authorization']
+             resolve();
+         })
      }
     },
     mutations:{
-
+     authRequest: state => state.loginStatus = "login request",
+     auth_succes(state,token) {
+         state.loginStatus = 'Login Successful';
+         state.token = token;
+     },
+     auth_error : state => state.loginStatus = "An error occurs",
+     logout() {
+         state.token = '';
+         state.status = '';
+     }
     },
-    getters:{
 
+    getters:{
+      isDoctorLoggedIn: state => !!state.status,
+      authStatus: state => state.loginStatus,
     }
 }
