@@ -6,6 +6,7 @@
        <v-spacer></v-spacer> 
        <v-btn to="/home">Log Out</v-btn>
     </v-app-bar>
+    <div class="subheader"> subheader </div>
     <v-content>
     </v-content>
     <!------ v-app ------->
